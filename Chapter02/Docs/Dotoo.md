@@ -7,3 +7,11 @@ To access SQLite in this project, we need to add a NuGet package called sqlite-n
 DoToo project. To do this, right-click on the **Dependencies** item under the DoToo project node of
 the solution and click **Manage NuGet Packages...**:
 
+```csharp
+public async Task UpdateItemAsync(TodoItem item)
+{
+ await CreateConnectionAsync();
+ await connection.UpdateAsync(item);
+ OnItemUpdated?.Invoke(this, item);
+}
+```
